@@ -33,15 +33,14 @@ public class ListController : Controller
     {
         ViewBag.columns = ColumnChoices;
         ViewBag.tableChoices = TableChoices;
-        ViewBag.employers = JobData.GetAllEmployers();
-        ViewBag.locations = JobData.GetAllLocations();
-        ViewBag.positionTypes = JobData.GetAllPositionTypes();
-        ViewBag.skills = JobData.GetAllCoreCompetencies();
+        // ViewBag.employers = JobData.GetAllEmployers();
+        // ViewBag.locations = JobData.GetAllLocations();
+        // ViewBag.positionTypes = JobData.GetAllPositionTypes();
+        // ViewBag.skills = JobData.GetAllCoreCompetencies();
 
         return View();
     }
 
-    // TODO #2 - Complete the Jobs action method
     public IActionResult Jobs(string column, string value)
     {
         string displayColumn = "";
