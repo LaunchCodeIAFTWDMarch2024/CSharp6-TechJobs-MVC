@@ -13,7 +13,10 @@ public class SearchController : Controller
     // GET: /<controller>/
     public IActionResult Index()
     {
+        ViewBag.searchTypeSelect = "all";
+        ViewBag.searchTermInput = "";
         ViewBag.columns = ListController.ColumnChoices;
+        ViewBag.jobs = null;
         return View();
     }
 
@@ -35,6 +38,8 @@ public class SearchController : Controller
         {
             jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
         }
+        ViewBag.searchTypeSelect = searchType;
+        ViewBag.searchTermInput = searchTerm;
         ViewBag.jobs = jobs;
         ViewBag.columns = ListController.ColumnChoices;
         return View("Index");
